@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NYT from './components/NYT'
 import Reddit from './components/Reddit'
 import Trends from './components/Trends'
@@ -12,7 +13,7 @@ function App() {
       <Trends />
       <Reddit />
       <NYT />
-      <Wikipedia />f]
+      <Wikipedia />
     </div>
   );
 }
