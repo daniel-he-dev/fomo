@@ -1,11 +1,9 @@
 import React from 'react'
 
-function Trends() {
+export default function NYT() {
   return (
     <div>
-      
+      NYT Placeholder
     </div>
   )
 }
-
-export default Trends

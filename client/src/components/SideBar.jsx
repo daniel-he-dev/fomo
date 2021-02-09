@@ -20,6 +20,9 @@ export default function SideBar({handleSearch}) {
       <ListGroup.Item action onClick={handleSearch}>
         Bears
       </ListGroup.Item>
+      <ListGroup.Item action onClick={handleSearch}>
+        Battlestar Galactica
+      </ListGroup.Item>
     </ListGroup>
   )
 }
