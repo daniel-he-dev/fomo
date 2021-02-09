@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import NYT from './components/NYT'
+import Reddit from './components/Reddit'
+import Trends from './components/Trends'
+import SearchBar from './components/SearchBar'
+import Wikipedia from './components/Wikipedia'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Now
-        </a>
-      </header>
+      <SearchBar />
+      <Trends />
+      <Reddit />
+      <NYT />
+      <Wikipedia />f]
     </div>
   );
 }
