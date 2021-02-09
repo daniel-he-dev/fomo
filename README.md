@@ -9,4 +9,4 @@ This site is served with a Node.js-based Express server with a React + Hooks fro
 2. Access the site at localhost:3000.
 
 ## Contributors
-Daniel He [https://github.com/daniel-he-dev]
+[Daniel He](https://github.com/daniel-he-dev)
