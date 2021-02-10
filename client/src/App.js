@@ -20,11 +20,13 @@ function App() {
         <SearchBar />
       </Row>
       <Row md={4} className="h-100">
-        <Col>
+        <Col md={3}>
           <SideBar handleSearch={search}/>
         </Col>
-        <Col >
-          <Trends />
+        <Col md={6}>
+          <Trends searchTerm="reactjs"/>
+        </Col>
+        <Col md={3}>
           <Reddit />
           <NYT />
           <Wikipedia />
