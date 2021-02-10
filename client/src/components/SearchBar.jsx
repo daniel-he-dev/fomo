@@ -3,7 +3,7 @@ import {Navbar,Form,Button} from 'react-bootstrap'
 
 function SearchBar() {
   return (
-    <Navbar variant="light" bg="light">
+    <Navbar variant="dark" bg="dark">
       <Navbar.Brand>Trending.Now</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {/* Maybe add drop-down commands here */}

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import NYT from './components/NYT.jsx'
 import Reddit from './components/Reddit.jsx'
-import Trends from './components/Trends.jsx'
+import Cards from './components/Cards.jsx'
 import SearchBar from './components/SearchBar.jsx'
 import SideBar from './components/SideBar.jsx'
 import Wikipedia from './components/Wikipedia.jsx'
@@ -19,17 +19,9 @@ function App() {
       <Row md={1}>
         <SearchBar />
       </Row>
-      <Row md={4} className="h-100">
-        <Col md={3}>
-          <SideBar handleSearch={search}/>
-        </Col>
-        <Col md={6}>
-          <Trends searchTerm="reactjs"/>
-        </Col>
-        <Col md={3}>
-          <Reddit />
-          <NYT />
-          <Wikipedia />
+      <Row md={12} className="h-100">
+        <Col md={{span: 10, offset:1}}>
+          <Cards />
         </Col>
       </Row>
       <Card.Footer className="footer" md={1}>
