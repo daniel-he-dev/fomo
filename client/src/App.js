@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import NYT from './components/NYT.jsx'
-import Reddit from './components/Reddit.jsx'
 import Cards from './components/Cards.jsx'
+import Console from './components/Console.jsx'
 import SearchBar from './components/SearchBar.jsx'
-import SideBar from './components/SideBar.jsx'
-import Wikipedia from './components/Wikipedia.jsx'
 import {Container, Row, Col, Card} from 'react-bootstrap'
 
 function App() {
@@ -19,12 +16,17 @@ function App() {
       <Row md={1}>
         <SearchBar />
       </Row>
-      <Row md={12} className="h-100">
+      <Row md={12} >
+        <Col md={{span: 10, offset:1}}>
+          <Console />
+        </Col>
+      </Row>
+      <Row md={12} >
         <Col md={{span: 10, offset:1}}>
           <Cards />
         </Col>
       </Row>
-      <Card.Footer className="footer" md={1}>
+      <Card.Footer bg="dark" className="footer" md={1}>
         <p>Daniel He | 2021 | <a href="https://github.com/daniel-he-dev">Github</a></p>
       </Card.Footer>
     </Container>

@@ -47,7 +47,7 @@ function Cards () {
     <Carousel
       swipeable={false}
       draggable={true}
-      showDots={true}
+      showDots={false}
       responsive={responsive}
       ssr={true} // means to render carousel on server-side.
       infinite={true}
@@ -61,7 +61,7 @@ function Cards () {
       itemClass="carousel-item-padding-40-px"
     >
       {coinData.map(coin => 
-        <Card key={coin.id} style={{margin: '10px', paddingTop: '10px'}}>
+        <Card className="shadow" key={coin.id} style={{margin: '10px', paddingTop: '10px'}}>
           <Card.Img 
             variant="top" 
             src={`https://static.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`}
@@ -71,7 +71,7 @@ function Cards () {
             <Card.Title>{`${coin.name} (${coin.symbol})`}</Card.Title>
             <ListGroup>
               <ListGroup.Item>Market Cap Rank: {coin.rank}</ListGroup.Item>
-              <ListGroup.Item>Price (USD): ${parseFloat(coin.priceUsd).toFixed(2)}</ListGroup.Item>
+              <ListGroup.Item>Price: ${parseFloat(coin.priceUsd).toFixed(2)}</ListGroup.Item>
               <ListGroup.Item>Change (24Hr): <span style={ coin.changePercent24Hr > 0 ? {color: 'green'} : {color: 'red'}}>{coin.changePercent24Hr}%</span></ListGroup.Item>
             </ListGroup>
           </Card.Body>
