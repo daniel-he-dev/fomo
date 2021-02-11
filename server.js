@@ -4,8 +4,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const proxy = require('express-http-proxy');
 const cors = require('cors');
-const trends = require('google-trends-api')
+const expressStaticGzip = require('express-static-gzip')
 
+app.use('/', expressStaticGzip('client/dist', {
+  enableBrotli: true,
+  customCompressions: [{
+      encodingName: 'deflate',
+      fileExtension: 'zz'
+  }],
+  orderPreference: ['br'],
+  setHeaders: function (res, path) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  }
+}));
 app.use(express.static('client/dist'));
 app.use(cors());
 
@@ -18,15 +29,6 @@ app.use(
     },
   })
 );
-
-app.use('/trends', async(req, res) => {
-  let chart = await trends.interestOverTime({
-    keyword: req.query.keyword,
-    startTime: new Date(req.query.startTime),
-    endTime: new Date(req.query.endTime)
-  })
-  res.send(chart);
-});
 
 app.get('/', (req, res) => {
   res.send('root');

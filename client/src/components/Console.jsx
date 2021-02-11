@@ -3,7 +3,7 @@ import SideBar from './SideBar.jsx'
 import Status from './Status.jsx'
 import {Card, Row, Col, Button} from 'react-bootstrap'
 
-export default function Console({cost, value, graphData, portfolio}) {
+export default function Console({cost, value, graphData, portfolio, handleClear}) {
   return (
     <Card className="shadow" style={{ height: '30vh', margin: '20px 10px', padding: '10px 10px' }}>
       <Row style={{ height: '100%' }}>
@@ -12,8 +12,7 @@ export default function Console({cost, value, graphData, portfolio}) {
         </Col>
         <Col md={9}>
           <Card className="shadow-thin" style={{height: '100%', padding: '10px 10px'}}>
-            <Status cost={cost} value={value} graphData={graphData}/>
-            <Button variant="danger" style={{position: 'absolute', width: '98%', bottom: '10px'}}>Clear</Button>
+            <Status cost={cost} value={value} graphData={graphData} handleClear={handleClear}/>
           </Card>
         </Col>
       </Row>

@@ -8,11 +8,22 @@ import {Container, Row, Col, Card, Alert} from 'react-bootstrap'
 
 function App() {
   const [coinData, setCoinData] = useState([]);
-  const [portfolio, setPortfolio] = useState([]);
-  const [cost, setCost] = useState(0);
-  const [value, setValue] = useState(0);
+  const [portfolio, setPortfolio] = useState(JSON.parse(localStorage.getItem('fomoPortfolio')) || []);
+  const [cost, setCost] = useState(JSON.parse(localStorage.getItem('fomoCost'))|| 0);
+  const [value, setValue] = useState(JSON.parse(localStorage.getItem('fomoValue')) || 0);
   const [show, setShow] = useState(true);
   const [graphData, setGraphData] = useState([]);
+
+  //Set localstorage effects
+  useEffect(() => {
+    localStorage.setItem('fomoPortfolio', JSON.stringify(portfolio))
+  }, [portfolio])
+  useEffect(() => {
+    localStorage.setItem('fomoCost', JSON.stringify(cost));
+  }, [cost])
+  useEffect(() => {
+    localStorage.setItem('fomoValue', JSON.stringify(value));
+  }, [value])
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,11 +35,15 @@ function App() {
 
   //Update current portfolio value when prices update or portfolio updates
   useEffect(() => {
+    coinData.length > 0 && updateValue();
+  }, [coinData]);
+
+  const updateValue = () => {
     setValue(portfolio.reduce((val, purchase) => {
       return val + purchase.quantity * coinData.find(coin => purchase.coinId === coin.id).priceUsd;
     }, 0))
-  }, [coinData, portfolio]);
-  
+  }
+
   const getCoinData = () => {
     return axios.get(`https://api.coincap.io/v2/assets?limit=20`)
       .then(res => res.data.data.map(coin => {
@@ -49,6 +64,12 @@ function App() {
     setGraphData(res.data.data)
   }
 
+  const handleClear = () => {
+    setPortfolio([]);
+    setCost(0);
+    setGraphData([]);
+  }
+
   return (
     <Container fluid="true" className="App" style={{height: 'inherit'}}>
       <Row md={1}>
@@ -62,8 +83,8 @@ function App() {
             variant="info" 
             dismissible 
             style={{ margin: '10px'}}
-          >Do you wish you bought Bitcoin 2 years ago? Build your portfolio to see how much you missed out on, or how much loss you avoided!</Alert>
-          <Console cost={cost} value={value} portfolio={portfolio} graphData={graphData}/>
+          ><strong>FOMO: Fear Of Missing Out</strong> - Do you wish you bought cryptocurrency 2 years ago? Build your portfolio to see how much you missed out on, or how much loss you avoided!</Alert>
+          <Console cost={cost} value={value} portfolio={portfolio} graphData={graphData} handleClear={handleClear}/>
         </Col>
       </Row>
       <Row md={12} >

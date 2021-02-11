@@ -25,7 +25,7 @@ export default function CoinCard({coin, makePurchase}) {
             <Card.Img 
               variant="top" 
               src={`https://static.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`}
-              style={{ width: '30%', margin: '0 auto'}}
+              style={{ width: '75px', height: '75px', margin: '0 auto'}}
             />
             <Card.Body>
               <Card.Title>{`${coin.name} (${coin.symbol})`}</Card.Title>

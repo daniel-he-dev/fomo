@@ -8,8 +8,8 @@ function SearchBar() {
         <Navbar.Brand>
           <img
             src="./icon.png"
-            width="20"
             alt="Site logo"
+            style={{width: '20px', height: '20px'}}
           />
           {`  FOMO`}
         </Navbar.Brand>
