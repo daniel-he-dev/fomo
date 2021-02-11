@@ -1,18 +1,18 @@
 import React from 'react'
 import SideBar from './SideBar.jsx'
 import Status from './Status.jsx'
-import {Card, Container, Row, Col, Button} from 'react-bootstrap'
+import {Card, Row, Col, Button} from 'react-bootstrap'
 
-export default function Console() {
+export default function Console({cost, value, graphData, portfolio}) {
   return (
-    <Card className="shadow" style={{ margin: '20px 10px', padding: '10px 10px' }}>
-      <Row>
-        <Col md={3}>
-          <SideBar />
+    <Card className="shadow" style={{ height: '30vh', margin: '20px 10px', padding: '10px 10px' }}>
+      <Row style={{ height: '100%' }}>
+        <Col md={3} style={{height: 'inherit'}}>
+          <SideBar portfolio={portfolio}/>
         </Col>
         <Col md={9}>
           <Card className="shadow-thin" style={{height: '100%', padding: '10px 10px'}}>
-            <Status />
+            <Status cost={cost} value={value} graphData={graphData}/>
             <Button variant="danger" style={{position: 'absolute', width: '98%', bottom: '10px'}}>Clear</Button>
           </Card>
         </Col>

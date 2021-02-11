@@ -4,24 +4,18 @@ import Card from 'react-bootstrap/Card'
 
 
 
-export default function SideBar({handleSearch}) {
+export default function SideBar({portfolio}) {
   
   return (
     <Card className="shadow-thin" style={{height: '100%'}}>
-      <ListGroup>
-        <ListGroup.Item>
+      <ListGroup className="scrollbar-hidden" style={{overflowY: 'scroll', height: '100%', position: 'relative' }}>
+        <ListGroup.Item style={{top: '0', position: 'sticky', zIndex: '5'}}>
           <h3>Portfolio</h3>
         </ListGroup.Item>
-        {/* This will be a map of some localstorage of previous searches at some point */}
-        <ListGroup.Item action onClick={handleSearch}>
-          Beets
-        </ListGroup.Item>
-        <ListGroup.Item action onClick={handleSearch}>
-          Bears
-        </ListGroup.Item>
-        <ListGroup.Item action onClick={handleSearch}>
-          Battlestar Galactica
-        </ListGroup.Item>
+        {portfolio.map((transaction, idx) => <ListGroup.Item key={idx}>
+          <div>{`Purchased ${transaction.quantity} ${transaction.coinId}\n`}</div>
+          <div>{`${new Date(transaction.time).toLocaleString('en-US')}`}</div>
+        </ListGroup.Item>)}
       </ListGroup>
     </Card>
   )
