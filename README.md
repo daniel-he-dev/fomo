@@ -1,6 +1,6 @@
-# Trending.now #
+# FOMO (Fear of Missing Out) #
 
-A search site that aggregates information from various media sites to get a simple clear look at the current buzz around a topic. Built for both the average hobbyist and the professional marketer.
+Simulate a cryptocurrency portfolio built over time in the past to see how much return on investment you have missed out on, or maybe how much loss you may have avoided!
 
 This site is served with a Node.js-based Express server with a React + Hooks front-end.
 ## How to get started ##
