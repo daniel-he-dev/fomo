@@ -1,4 +1,4 @@
-# Trending.now #
+# FOMO #
 
 A search site that aggregates information from various media sites to get a simple clear look at the current buzz around a topic. Built for both the average hobbyist and the professional marketer.
 
